@@ -1,0 +1,41 @@
+{
+  "name": "yumrush",
+  "version": "1.0.0",
+  "description": "YumRush - Tasty food, delivered super fast!",
+  "main": "App.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aditiparekh19/YumRush.git"
+  },
+  "keywords": [
+    "React",
+    "food",
+    "delivery",
+    "app",
+    "tailwind"
+  ],
+  "author": "Aditi Parekh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aditiparekh19/YumRush/issues"
+  },
+  "homepage": "https://github.com/aditiparekh19/YumRush#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.24",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2"
+  }
+}
