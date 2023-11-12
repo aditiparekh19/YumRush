@@ -7,25 +7,20 @@ export const RestroCard = (props) => {
       <h3 className="font-extrabold m-2">{props?.resData?.name}</h3>
       <div className="flex justify-between p-2 text-lg font-serif">
         <h4>{props?.resData?.areaName}</h4>
-        <h4>{props?.resData?.avgRating + " " + "Rating"}</h4>
         <h4>{props?.resData?.costForTwo}</h4>
+        <h4>{'🌟' + props?.resData?.avgRating}</h4>
       </div>
-      <span className="flex flex-wrap text-lg font-serif p-2">{props?.resData?.cuisines.slice(0, 4).join(",")}</span>
+      <span className="flex flex-wrap text-lg font-serif p-2">{props?.resData?.cuisines.slice(0, 4).join(", ")}</span>
     </div>
   );
 };
 
-// Config Driven UI
-// Data layer + UI Layer = FE Engineer
-
 // Higher Order Component
-// input - RestroCard => RestroCardPromoted
-
-export const withOpenedLabel = (RestroCard) =>{
+export const withPromotedLabel = (RestroCard) =>{
   return (props) =>{
     return(
       <div>
-        <label className="bg-black text-white m-4 p-4 w-30 rounded-md absolute">Opened</label>
+        <label className="bg-black text-white m-4 p-4 w-30 rounded-md absolute font-serif">Promoted</label>
         <RestroCard {...props}/>
       </div>
     )

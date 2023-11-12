@@ -3,7 +3,6 @@ import { useRouteError } from 'react-router-dom'
 
 const ErrorPage = () => {
 const error = useRouteError();
-console.log(error)
   return (
      <div className='text-xl m-8 p-2 text-center font-semibold'>
      <h2>Oops! Something went wrong..</h2>

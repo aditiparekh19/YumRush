@@ -4,9 +4,9 @@ import Header from "./components/Header";
 import { Outlet, RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
 import Offers from "./components/Offers";
-import Search from "./components/Search";
 import { Body } from "./components/Body";
 import ErrorPage from "./components/ErrorPage";
+import { RestaurantMenu } from "./components/RestaurantMenu";
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Body isSearched={false}/>,
       },
       {
         path: "/offers",
@@ -32,7 +32,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <Search />,
+        element: <Body isSearched={true} />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <ErrorPage />,

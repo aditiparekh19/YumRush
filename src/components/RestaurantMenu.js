@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Shimmer } from "./Shimmer";
-import { IMGCDN } from "../utils/Constants";
 import { useRestaurantMenu } from "../utils/useRestaurantMenu.JS";
 import { RestaurantMenuCard } from "./RestaurantMenuCard";
 
@@ -9,9 +8,7 @@ export const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   const [totalPrice, setTotalPrice] = useState(0);
-  console.log(
-    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-  );
+
   if (resInfo == null) return <Shimmer />;
 
   const {
@@ -30,6 +27,8 @@ export const RestaurantMenu = () => {
         c?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
+  
+  console.log(categories);
 
   return (
     <>
@@ -58,11 +57,11 @@ export const RestaurantMenu = () => {
       <div className="res-info">
         <div className="res-menu-card">
           <div className="total-price-card">Total Amount | 💰{totalPrice}</div>
-          {resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+          {categories?.map(
             (x) => {
               return (
                 <RestaurantMenuCard
-                  info={x?.card?.info}
+                  itemCards={x?.card?.card}
                   price={totalPrice}
                   setTotalPriceFunc={setTotalPrice}
                 />
