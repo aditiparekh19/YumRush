@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useState } from "react";
 import { IMGCDN } from "../utils/Constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/store/CartSlice";
 
 const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
   const [numberOfItems, setNumberOfItems] = useState(0);
+  const dispatch = useDispatch();
   let charges =
     card?.card?.info?.price > 1000
       ? card?.card?.info?.price / 100
@@ -38,6 +41,7 @@ const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
               onClick={() => {
                 setNumberOfItems(numberOfItems + 1);
                 setTotalPriceFunc(price + finalAmount);
+                dispatch(addItem(card?.card?.info));
               }}
             >
               ADD
@@ -61,6 +65,7 @@ const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
                 onClick={() => {
                   setNumberOfItems(numberOfItems + 1);
                   setTotalPriceFunc(price + finalAmount);
+                  dispatch(addItem(card?.card?.info));
                 }}
               >
                 +

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {LOGO} from "../utils/Constants";
+import { LOGO } from "../utils/Constants";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="dark bg-white shadow-2xl p-4">
       <div className="flex justify-between">
@@ -26,16 +28,16 @@ const Header = () => {
             🤑Offers
           </Link>
           <Link
+            to="/cart"
+            className="text-amber-950 text-lg font-medium m-6 hover:text-amber-800"
+          >
+            {cartItems.length === 0 ? "🛍️Cart" : `🛍️Cart (${cartItems.length})`}
+          </Link>
+          <Link
             to="/help"
             className="text-amber-950 text-lg font-medium m-6 hover:text-amber-800"
           >
             🔑Help
-          </Link>
-          <Link
-            to="/cart"
-            className="text-amber-950 text-lg font-medium m-6 hover:text-amber-800"
-          >
-            🛍️Cart
           </Link>
         </div>
       </div>
