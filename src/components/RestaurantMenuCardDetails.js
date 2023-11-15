@@ -3,25 +3,12 @@ import { useState } from "react";
 import { IMGCDN } from "../utils/Constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/store/CartSlice";
+import { getFinalAmount } from "../utils/util";
 
 const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
   const [numberOfItems, setNumberOfItems] = useState(0);
   const dispatch = useDispatch();
-  let charges =
-    card?.card?.info?.price > 1000
-      ? card?.card?.info?.price / 100
-      : card?.card?.info?.price;
-  let defaultPrice =
-    card?.card?.info?.defaultPrice > 1000
-      ? card?.card?.info?.defaultPrice / 100
-      : card?.card?.info?.defaultPrice;
-  let finalAmount = Math.ceil(
-    charges && charges != NaN && charges > 0
-      ? charges
-      : defaultPrice && defaultPrice != NaN && defaultPrice > 0
-      ? defaultPrice
-      : null
-  );
+  let finalAmount = getFinalAmount(card);
   return (
     <div className="flex justify-between shadow-sm">
       <div className="m-4 p-4 border-solid border-black">
@@ -41,7 +28,7 @@ const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
               onClick={() => {
                 setNumberOfItems(numberOfItems + 1);
                 setTotalPriceFunc(price + finalAmount);
-                dispatch(addItem(card?.card?.info));
+                dispatch(addItem(card));
               }}
             >
               ADD
@@ -65,7 +52,7 @@ const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
                 onClick={() => {
                   setNumberOfItems(numberOfItems + 1);
                   setTotalPriceFunc(price + finalAmount);
-                  dispatch(addItem(card?.card?.info));
+                  dispatch(addItem(card));
                 }}
               >
                 +

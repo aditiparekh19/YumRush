@@ -10,10 +10,10 @@ const cartSlice = createSlice({
       store.items.push(action.payload);
     },
     removeItem: (store) => {
-      store.items.length = 0;
+      store.items.pop();
     },
     clearCart: (store) => {
-      store.items.pop();
+      store.items.length = 0;
     },
   },
 });
