@@ -7,7 +7,7 @@ import Offers from "./components/Offers";
 import { Body } from "./components/Body";
 import ErrorPage from "./components/ErrorPage";
 import { RestaurantMenu } from "./components/RestaurantMenu";
-import appStore from "./utils/store/AppStore";
+import appStore from "./utils/store/appStore";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart";
 

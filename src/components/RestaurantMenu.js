@@ -59,7 +59,7 @@ export const RestaurantMenu = () => {
           {totalPrice > 0 && (
             <div className="flex justify-between mx-64 m-2  bg-green-300 border-solid border-white border-2 shadow-lg text-lg font-medium font-serif">
               <div className="mx-16 my-4">
-                {cartItems.length} Items | {totalPrice}
+                {cartItems.length} Items |  ₹ {totalPrice}
               </div>
               <Link to="/cart">
                 <div className="mx-20 my-4">View Cart 🛍️</div>
