@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useState } from "react";
 import { IMGCDN } from "../utils/Constants";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/store/CartSlice";
+import { addItem } from "../utils/store/cartSlice";
 import { getFinalAmount } from "../utils/util";
 
 const RestaurantMenuCardDetails = ({ card, price, setTotalPriceFunc }) => {
